@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="609" height="80" viewBox="0 0 609 80">
+  <defs>
+    <linearGradient id="blueGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#1A2C47;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1A2C47;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="lightBlueGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#00AFFF;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#00AFFF;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Icon (Arrow) - MAXIMUM SIZE -->
+  <g transform="translate(0, 0)">
+    <!-- Dark Blue Arrow Body -->
+    <path d="M0 50 L50 0 L100 50 L75 50 L75 80 L25 80 L25 50 Z" fill="url(#blueGradient)" />
+    <!-- Light Blue Inner Arrow -->
+    <path d="M20 50 L50 20 L80 50 L50 50 Z" fill="url(#lightBlueGradient)" />
+  </g>
+
+  <!-- Text "UptradeX" - MAXIMUM SIZE -->
+  <text x="120" y="70" font-family="Arial, sans-serif" font-size="70" font-weight="bold" fill="url(#blueGradient)">
+    <tspan>U</tspan><tspan dy="0">ptrade</tspan><tspan dy="0">X</tspan>
+  </text>
+</svg>

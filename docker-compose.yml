@@ -1,0 +1,52 @@
+services:
+  backend:
+    build: ./backend
+    ports:
+      - "8080:8080"
+    environment:
+      - NODE_ENV=production
+      - PORT=8080
+      - DATABASE_URL=mongodb://mongo:27017/realtime-stock-analytics
+    depends_on:
+      - mongo
+    restart: unless-stopped
+    mem_limit: 200m
+    cpus: 0.5
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+    restart: unless-stopped
+    mem_limit: 64m
+    cpus: 0.25
+
+  dashboard:
+    build: ./dashboard
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+    restart: unless-stopped
+    mem_limit: 64m
+    cpus: 0.25
+
+  mongo:
+    image: mongo:6.0
+    ports:
+      - "27017:27017"
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=admin
+      - MONGO_INITDB_ROOT_PASSWORD=password
+      - MONGO_INITDB_DATABASE=realtime-stock-analytics
+    volumes:
+      - mongo_data:/data/db
+    restart: unless-stopped
+    mem_limit: 128m
+    cpus: 0.25
+    command: mongod --wiredTigerCacheSizeGB 0.25 --logpath /var/log/mongodb/mongod.log
+
+volumes:
+  mongo_data:
